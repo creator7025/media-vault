@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Media Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div class="sprocket-strip"></div>
+
+<!-- Login -->
+<div id="loginScreen" class="login-card" style="display:none;">
+  <p class="eyebrow">Admin</p>
+  <h1 class="site-title" style="font-size:24px;margin-bottom:20px;">Sign in</h1>
+  <p id="loginError" class="error-text" style="display:none;">Incorrect password.</p>
+  <label class="field-label" for="passwordInput">Password</label>
+  <input type="password" class="text-input" id="passwordInput" placeholder="••••••••" />
+  <button class="btn-primary" id="loginBtn">Sign in</button>
+</div>
+
+<!-- Admin panel -->
+<div id="adminScreen" class="admin-shell" style="display:none;">
+  <div class="admin-bar">
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1 class="site-title" style="font-size:28px;">Add new files</h1>
+    </div>
+    <button class="btn-text" id="logoutBtn">Sign out</button>
+  </div>
+
+  <div class="dropzone" id="dropzone">
+    <p>Drag and drop images or videos here, or click to choose files</p>
+    <span class="mono">Multiple files supported</span>
+  </div>
+  <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none;" />
+
+  <div class="file-pill-row" id="filePillRow"></div>
+
+  <label class="field-label" for="descriptionInput">Description (applied to all files in this batch, optional)</label>
+  <textarea class="text-input" id="descriptionInput" rows="2" placeholder="Optional note shown with these files"></textarea>
+
+  <button class="btn-primary" id="uploadBtn" disabled>Upload</button>
+
+  <div class="admin-list">
+    <h2>Your files</h2>
+    <p class="search-count" id="adminCount" style="margin:0 0 8px;"></p>
+    <div id="adminListBody"></div>
+  </div>
+</div>
+
+<div id="toastRoot"></div>
+
+<script src="/admin.js"></script>
+</body>
+</html>
